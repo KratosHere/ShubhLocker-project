@@ -232,6 +232,204 @@ def GMAILACC():
 
 
 
+#socialmediaacc_MANAGEMENT_PROGRAMandFUNCTIONS
+
+
+def SOCIALMEDIAACC():
+
+    print()
+    print('< Welcome to your SOCIAL MEDIA ACCOUNT MANAGEMENT DATABASE >\n')
+
+
+    def insertData():
+
+        print('Kindly Insert data related to your Social Media accounts:')
+        print()
+
+        choice = 'y'
+        while (choice.lower() == 'y'):
+
+            sno = int(input('Enter Proper Serial Number:'))
+            socialAcc = input('Enter SOCIAL MEDIA ACCOUNT:')
+            passwd = input(f"Enter PASSWORD for {socialAcc}:")
+            extra = input('Enter Some extra info you want to give:')
+
+            query = "insert into socialmediaacc(Sno,Social_Account,Password,Extra_info) values({},'{}','{}','{}')".format(sno,socialAcc,passwd,extra)
+            
+            myCursor.execute(query)
+            myConnection.commit()
+
+            choice = input('Want to enter more data(y/n):')
+            print()
+
+
+    def removeData():
+
+        myCursor.execute("select * from socialmediaacc")
+        data = myCursor.fetchall()
+        for a in data:
+            print(a)
+            print()
+
+
+        print()
+        print("Please select the Social Media Account which you want to delete:")
+        print()
+
+
+        sno = int(input('Enter Sno:'))
+
+        query = "DELETE FROM socialmediaacc WHERE Sno = {}".format(sno)
+        myCursor.execute(query)
+        myConnection.commit()
+    
+
+        print('Data Removed!')
+        print()
+    
+    def allSocialaccData():
+
+        myCursor.execute("select * from socialmediaacc")
+        data = myCursor.fetchall()
+
+        for i in data:
+            print(i)
+            print()
+
+
+    def UpdatePassword_socialacc():
+
+        
+        
+        
+        myCursor.execute("select * from socialmediaacc")
+        data = myCursor.fetchall()
+
+        for j in data:
+
+            print(j)
+            print()
+        print()
+
+        print('< Please select the Social Media Account of which you are updating your Password >')
+        print()
+
+        
+
+        askSno = int(input('Enter the Sno:'))
+        
+        newPassword = input('Enter the new Password:')
+
+        
+        query = "update socialmediaacc set Password = '{}' where Sno = {}".format(newPassword,askSno)
+
+        myCursor.execute(query)
+        myConnection.commit()
+
+        print()
+
+
+    def updateExtra_socialacc():
+
+
+        print()
+        askSnoforExtra = int(input("Enter the Account's Sno for which you want to give some extra Information:"))
+
+
+
+        print()
+        print("< Give some Extra Information you want to give for the respective Account >")
+        print()
+
+
+        askInfo = input('Write Here:')
+
+        query = "update socialmediaacc set Extra_info = '{}' where Sno = {}".format(askInfo,askSnoforExtra)
+
+        myCursor.execute(query)
+        myConnection.commit()
+
+    def searchsocialacc():
+
+        print()
+        searchInput = input('TYPE SOCIAL MEDIA NAME:')
+        print()
+
+        query = "select * from socialmediaacc where Social_Account like '{}%'".format(searchInput)
+
+        myCursor.execute(query)
+        data = myCursor.fetchall()
+
+
+        print("Sno , SocialAccount , Password , ExtraInfo")
+
+        for i in data:
+
+            print(i)
+            print()
+
+
+
+    #MenuDrive_for_socialMediaACC
+        
+    
+    while True:
+        print()
+        
+        optionsLST = ['1-> Insert Data' , '2-> Show complete data for SOCIAL MEDIA ACCOUNT' , '3-> Update Social Media Account Password' , '4-> Remove Data' , '5-> Give Some Extra Info for the respective account' , '6-> Search Social Media Account' , '7-> Exit']
+
+        for options in optionsLST:
+            print(options)
+
+
+        print()
+        gmailaccChoice = input('YOUR CHOICE:')
+        print()
+
+        if (gmailaccChoice.isdigit()):
+
+            if (int(gmailaccChoice) == 1):
+
+                insertData()
+            
+            elif (int(gmailaccChoice) == 2):
+
+                print("Sno , SocialAccount , Password , ExtraInfo")
+
+                allSocialaccData()
+
+            elif (int(gmailaccChoice) == 3):
+
+                UpdatePassword_socialacc()
+
+
+            elif (int(gmailaccChoice) == 4):
+
+                removeData()
+
+
+            elif (int(gmailaccChoice) == 5):
+
+                updateExtra_socialacc()
+
+
+            elif (int(gmailaccChoice) == 6):
+                searchsocialacc()
+
+
+            elif (int(gmailaccChoice) == 7): #exit
+
+                break
+        
+        else:
+
+            print("Invalid Input, Try Again!")
+            break
+
+
+
+
+
 #MAIN_MENU_DRIVE
             
 
@@ -240,7 +438,7 @@ while True:
 
     print()
 
-    optionsLST = ['1-> GMAIL_ACCOUNT' , '2-> EXIT']
+    optionsLST = ['1-> GMAIL_ACCOUNT' , '2-> SOCIAL_MEDIA_ACCOUNT' , '3-> EXIT']
 
     for options in optionsLST:
         print(options)
@@ -256,15 +454,17 @@ while True:
 
             GMAILACC()
 
-        if (int(tableChoice) == 2): #EXIT
+        if (int(tableChoice) == 2):
+
+            SOCIALMEDIAACC()
+
+        elif (int(tableChoice) == 3): #exit
 
             print()
             print('Program Closed Successfully!')
     
             break
 
-        
     else:
         print('Invalid Input, Try Again...!!')
         break
-
