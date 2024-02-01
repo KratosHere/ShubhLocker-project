@@ -3,6 +3,19 @@
 import mysql.connector as mysqlconnector
 import pickle
 
+
+
+def GENpasswd():
+
+    with open("MySQLpassword.dat",'wb') as f:
+
+        askPasswd = input('Enter Password for your MySQL:')
+
+        pickle.dump(askPasswd,f)
+    
+GENpasswd()
+
+
 with open('MySQLpassword.dat','rb') as f:
 
     MYpasswd = pickle.load(f)
