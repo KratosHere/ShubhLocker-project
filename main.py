@@ -427,8 +427,196 @@ def SOCIALMEDIAACC():
             break
 
 
+#otheracc_MANAGEMENT_PROGRAMandFUNCTIONS
+
+def OTHERACCOUNT():
+
+    print()
+    print('< Welcome to your OTHER IMPORTANT ACCOUNTS MANAGEMENT DATABASE >\n')
 
 
+    def insertData():
+
+        print('Kindly Insert data related to your OTHER accounts:')
+        print()
+
+        choice = 'y'
+        while (choice.lower() == 'y'):
+
+            sno = int(input('Enter Proper Serial Number:'))
+            otherAcc = input('Enter ACCOUNT NAME:')
+            passwd = input(f"Enter PASSWORD for {otherAcc}:")
+            extra = input('Enter Some extra info you want to give:')
+
+            query = "insert into otheracc(Sno,Account_Name,Password,Extra_info) values({},'{}','{}','{}')".format(sno,otherAcc,passwd,extra)
+            
+            myCursor.execute(query)
+            myConnection.commit()
+
+            choice = input('Want to enter more data(y/n):')
+            print()
+
+
+    def removeData():
+
+        myCursor.execute("select * from otheracc")
+        data = myCursor.fetchall()
+        for a in data:
+            print(a)
+            print()
+
+
+        print()
+        print("Please select the Account which you want to delete:")
+        print()
+
+
+        sno = int(input('Enter Sno:'))
+
+        query = "DELETE FROM otheracc WHERE Sno = {}".format(sno)
+        myCursor.execute(query)
+        myConnection.commit()
+    
+
+        print('Data Removed!')
+        print()
+    
+    def allOtheraccData():
+
+        myCursor.execute("select * from otheracc")
+        data = myCursor.fetchall()
+
+        for i in data:
+            print(i)
+            print()
+
+
+    def UpdatePassword_otheracc():
+
+        
+        
+        
+        myCursor.execute("select * from otheracc")
+        data = myCursor.fetchall()
+
+        for j in data:
+
+            print(j)
+            print()
+        print()
+
+        print('< Please select the Account of which you are updating your Password >')
+        print()
+
+        
+
+        askSno = int(input('Enter the Sno:'))
+        
+        newPassword = input('Enter the new Password:')
+
+        
+        query = "update otheracc set Password = '{}' where Sno = {}".format(newPassword,askSno)
+
+        myCursor.execute(query)
+        myConnection.commit()
+
+        print()
+
+
+    def updateExtra_otheracc():
+
+
+        print()
+        askSnoforExtra = int(input("Enter the Account's Sno for which you want to give some extra Information:"))
+
+
+
+        print()
+        print("< Give some Extra Information you want to give for the respective Account >")
+        print()
+
+
+        askInfo = input('Write Here:')
+
+        query = "update otheracc set Extra_info = '{}' where Sno = {}".format(askInfo,askSnoforExtra)
+
+        myCursor.execute(query)
+        myConnection.commit()
+
+    def searchsocialacc():
+
+        print()
+        searchInput = input('TYPE ACCOUNT NAME NAME:')
+        print()
+
+        query = "select * from otheracc where Account_Name like '{}%'".format(searchInput)
+
+        myCursor.execute(query)
+        data = myCursor.fetchall()
+
+
+        print("Sno , AccountName , Password , ExtraInfo")
+
+        for i in data:
+
+            print(i)
+            print()
+
+    #MenuDrive_for_otherAcc
+        
+    
+    while True:
+        print()
+        
+        optionsLST = ['1-> Insert Data' , '2-> Show complete data for OTHER ACCOUNTS' , "3-> Update Account's Password" , '4-> Remove Data' , '5-> Give Some Extra Info for the respective account' , '6-> Search Account' , '7-> Exit']
+
+        for options in optionsLST:
+            print(options)
+
+
+        print()
+        gmailaccChoice = input('YOUR CHOICE:')
+        print()
+
+        if (gmailaccChoice.isdigit()):
+
+            if (int(gmailaccChoice) == 1):
+
+                insertData()
+            
+            elif (int(gmailaccChoice) == 2):
+
+                print("Sno , OtherAccount , Password , ExtraInfo")
+
+                allOtheraccData()
+
+            elif (int(gmailaccChoice) == 3):
+
+                UpdatePassword_otheracc()
+
+
+            elif (int(gmailaccChoice) == 4):
+
+                removeData()
+
+
+            elif (int(gmailaccChoice) == 5):
+
+                updateExtra_otheracc()
+
+
+            elif (int(gmailaccChoice) == 6):
+                searchsocialacc()
+
+
+            elif (int(gmailaccChoice) == 7): #exit
+
+                break
+        
+        else:
+
+            print("Invalid Input, Try Again!")
+            break
 
 #MAIN_MENU_DRIVE
             
@@ -438,7 +626,7 @@ while True:
 
     print()
 
-    optionsLST = ['1-> GMAIL_ACCOUNT' , '2-> SOCIAL_MEDIA_ACCOUNT' , '3-> EXIT']
+    optionsLST = ['1-> GMAIL_ACCOUNT' , '2-> SOCIAL_MEDIA_ACCOUNT' , '3-> OTHER_ACCOUNTS' , '4-> EXIT']
 
     for options in optionsLST:
         print(options)
@@ -454,11 +642,15 @@ while True:
 
             GMAILACC()
 
-        if (int(tableChoice) == 2):
+        elif (int(tableChoice) == 2):
 
             SOCIALMEDIAACC()
 
-        elif (int(tableChoice) == 3): #exit
+        elif (int(tableChoice) == 3):
+
+            OTHERACCOUNT()
+
+        elif (int(tableChoice) == 4): #exit
 
             print()
             print('Program Closed Successfully!')
