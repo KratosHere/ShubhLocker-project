@@ -19,7 +19,29 @@ First of all create a database on your system named -> important_shubhdata (OR A
 
 Then Create the required tables which is being mentioned below: <br>
 
-# Here are the images for CODE of MySQL which you have to write to create table in your database <hr>
+
+# Copy the MySQL code from the below provided links to create the necessary tables.
+
+
+<a href="https://drive.google.com/file/d/1WSplabRvW63c35D0NzYHvvz08EM4aTrx/view?usp=drive_link" target="_blank">Code for gmailacc</a>
+
+<a href="https://drive.google.com/file/d/1QorJxs9uPhfOU4lb8liR-Kpylo2tAtmb/view?usp=drive_link" target="_blank">Code for socialmediaacc</a>
+
+<a href="https://drive.google.com/file/d/1SS7fJsvObul1Mnm_9nwSvxdLjebpGrsH/view?usp=drive_link" target="_blank">Code for otheracc</a>
+
+
+
+
+
+
+
+
+
+
+
+<hr>
+
+# Here are the images for CODE of MySQL to create The required tables
 
 
 <a href="https://drive.google.com/file/d/1m0xhHmT3kBg2yy6TnMpUu0YO8ZLtliNS/view?usp=sharing" target="_blank">Code for gmailacc table</a>
@@ -31,3 +53,4 @@ Then Create the required tables which is being mentioned below: <br>
 
 <a href="https://drive.google.com/file/d/18tXYP_8ZMUHCurmbC9FwbXVUlTez0YHh/view?usp=sharing" target="_blank">Code for otheracc table</a>
 
+<hr>
