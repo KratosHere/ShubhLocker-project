@@ -17,6 +17,9 @@ HOW TO USE and ACCESS THE PROJECT: <br>
 
 First of all create a database on your system named -> important_shubhdata (OR ANYTHING AS YOU WISH)<br>
 
+BUT MAKE SURE while performing connection, mention your DATABASE EXACT NAME (WATCH IN LINE 25) <br>
+
+
 Then Create the required tables which is being mentioned below: <br>
 
 
