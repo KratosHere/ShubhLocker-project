@@ -26,16 +26,6 @@ myConnection = mysqlconnector.connect(host='localhost',user='root',passwd=MYpass
 
 myCursor = myConnection.cursor()
 
-'''
-
-Tables:
-
-1. gmailacc
-2. socialmediaacc
-3. Working on IT
-
-'''
-
 #gmailacc_MANAGEMENT_PROGRAMandFUNCTIONS
 
 def GMAILACC():
@@ -617,14 +607,6 @@ def OTHERACCOUNT():
 
             print("Invalid Input, Try Again!")
             break
-
-
-
-# All these functionalities is for me (Shubhashish) , Im currently working on it!!
-# def IMPORTANT_DOCS():
-
-#     return "UNDER PROCESS"
-
 
 
 
