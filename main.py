@@ -164,6 +164,27 @@ def GMAILACC():
             print()
 
 
+    
+    def selfQuery():
+
+        print()
+        print("< WRITE YOUR OWN QUERY >")
+
+
+        askQuery = input('Enter your Query:')
+
+        query = askQuery
+
+        myCursor.execute(query)
+        data = myCursor.fetchall()
+
+        for i in data:
+
+            print(i)
+
+
+
+
 
     #MenuDrive_FOR_GMAILACC_
                 
@@ -171,7 +192,7 @@ def GMAILACC():
     while True:
         print()
     
-        optionsLST = ['1-> Insert Data' , '2-> Show complete data for GMAIL ACCOUNT' , '3-> Update Gmail Account Password' , '4-> Remove Data' , '5-> Give Some Extra Info for the respective account' , '6-> Search GMAIL Account' , '7-> Exit']
+        optionsLST = ['1-> Insert Data' , '2-> Show complete data for GMAIL ACCOUNT' , '3-> Update Gmail Account Password' , '4-> Remove Data' , '5-> Give Some Extra Info for the respective account' , '6-> Search GMAIL Account', '7-> Write Your Query' , '8-> Exit']
 
         for options in optionsLST:
             print(options)
@@ -211,7 +232,12 @@ def GMAILACC():
                 searchgmailacc()
 
 
-            elif (int(gmailaccChoice) == 7): #exit
+            elif (int(gmailaccChoice) == 7):
+
+                selfQuery()
+
+
+            elif (int(gmailaccChoice) == 8): #exit
 
                 break
         
@@ -358,6 +384,24 @@ def SOCIALMEDIAACC():
             print(i)
             print()
 
+    def selfQuery():
+
+        print()
+        print("< WRITE YOUR OWN QUERY >")
+
+
+        askQuery = input('Enter your Query:')
+
+        query = askQuery
+
+        myCursor.execute(query)
+        data = myCursor.fetchall()
+
+        for i in data:
+
+            print(i)
+
+
 
 
     #MenuDrive_for_socialMediaACC
@@ -366,7 +410,7 @@ def SOCIALMEDIAACC():
     while True:
         print()
         
-        optionsLST = ['1-> Insert Data' , '2-> Show complete data for SOCIAL MEDIA ACCOUNT' , '3-> Update Social Media Account Password' , '4-> Remove Data' , '5-> Give Some Extra Info for the respective account' , '6-> Search Social Media Account' , '7-> Exit']
+        optionsLST = ['1-> Insert Data' , '2-> Show complete data for SOCIAL MEDIA ACCOUNT' , '3-> Update Social Media Account Password' , '4-> Remove Data' , '5-> Give Some Extra Info for the respective account' , '6-> Search Social Media Account' , '7-> Write Your Query' , '8-> EXIT']
 
         for options in optionsLST:
             print(options)
@@ -407,7 +451,11 @@ def SOCIALMEDIAACC():
                 searchsocialacc()
 
 
-            elif (int(gmailaccChoice) == 7): #exit
+            elif (int(gmailaccChoice) == 7):
+
+                selfQuery()
+
+            elif (int(gmailaccChoice) == 8): #exit
 
                 break
         
@@ -552,13 +600,31 @@ def OTHERACCOUNT():
             print(i)
             print()
 
+
+    def selfQuery():
+
+        print()
+        print("< WRITE YOUR OWN QUERY >")
+
+
+        askQuery = input('Enter your Query:')
+
+        query = askQuery
+
+        myCursor.execute(query)
+        data = myCursor.fetchall()
+
+        for i in data:
+
+            print(i)
+
     #MenuDrive_for_otherAcc
         
     
     while True:
         print()
         
-        optionsLST = ['1-> Insert Data' , '2-> Show complete data for OTHER ACCOUNTS' , "3-> Update Account's Password" , '4-> Remove Data' , '5-> Give Some Extra Info for the respective account' , '6-> Search Account' , '7-> Exit']
+        optionsLST = ['1-> Insert Data' , '2-> Show complete data for OTHER ACCOUNTS' , "3-> Update Account's Password" , '4-> Remove Data' , '5-> Give Some Extra Info for the respective account' , '6-> Search Account' , '7-> Write Your Query' , '8-> EXIT']
 
         for options in optionsLST:
             print(options)
@@ -599,7 +665,13 @@ def OTHERACCOUNT():
                 searchsocialacc()
 
 
-            elif (int(gmailaccChoice) == 7): #exit
+            elif(int(gmailaccChoice) == 7):
+
+                selfQuery()
+
+
+
+            elif (int(gmailaccChoice) == 8): #exit
 
                 break
         
@@ -618,7 +690,7 @@ while True:
 
     print()
 
-    optionsLST = ['1-> GMAIL_ACCOUNT' , '2-> SOCIAL_MEDIA_ACCOUNT' , '3-> OTHER_ACCOUNTS' , '4-> EXIT']
+    optionsLST = ['1-> GMAIL_ACCOUNT' , '2-> SOCIAL_MEDIA_ACCOUNT' , '3-> OTHER_ACCOUNTS', '4-> EXIT']
 
     for options in optionsLST:
         print(options)
