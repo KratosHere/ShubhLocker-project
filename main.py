@@ -581,7 +581,7 @@ def OTHERACCOUNT():
         myCursor.execute(query)
         myConnection.commit()
 
-    def searchsocialacc():
+    def searchOtherAcc():
 
         print()
         searchInput = input('TYPE ACCOUNT NAME NAME:')
@@ -662,7 +662,7 @@ def OTHERACCOUNT():
 
 
             elif (int(gmailaccChoice) == 6):
-                searchsocialacc()
+                searchOtherAcc()
 
 
             elif(int(gmailaccChoice) == 7):
