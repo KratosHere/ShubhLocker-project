@@ -1,7 +1,7 @@
 
 
 import mysql.connector as mysqlconnector
-
+import os
 
 MYpasswd = input('Enter Your MySQL password:')
 
@@ -222,8 +222,10 @@ def GMAILACC():
 
 
             elif (int(gmailaccChoice) == 8): #exit
-
+                
+                os.system('cls')
                 break
+                
         
         else:
 
@@ -440,7 +442,8 @@ def SOCIALMEDIAACC():
                 selfQuery()
 
             elif (int(gmailaccChoice) == 8): #exit
-
+                
+                os.system('cls')
                 break
         
         else:
@@ -657,6 +660,7 @@ def OTHERACCOUNT():
 
             elif (int(gmailaccChoice) == 8): #exit
 
+                os.system('cls')
                 break
         
         else:
